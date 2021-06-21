@@ -5,7 +5,7 @@ import EventCreate from '../views/EventCreate.vue'
 
 const routes = [
   {
-    path: '/',
+    path: '/events',
     name: 'EventList',
     component: EventList
   },

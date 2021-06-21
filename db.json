@@ -1,5 +1,5 @@
 {
-  "eventlist": [
+  "events": [
     {
       "id": 123,
       "category": "animal welfare",
@@ -29,6 +29,16 @@
       "date": "July 22, 2022",
       "time": "11:00",
       "organizer": "Carey Wales"
+    },
+    {
+      "id": "b83203a3-8dd6-430d-8a1a-dc1b769b9a2c",
+      "category": "education",
+      "title": "Book Trade",
+      "description": "",
+      "location": "City Library",
+      "date": "21/07/21",
+      "time": "10:00",
+      "organizer": "Guillaume"
     }
   ]
 }
