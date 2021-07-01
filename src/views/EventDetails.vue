@@ -3,6 +3,8 @@
     <h1>{{ event.title }}</h1>
     <p>{{ event.time }} on {{ event.date }} @ {{ event.location }}</p>
     <p>{{ event.description }}</p>
+    <p v-if="event.extras.catering">Catering</p>
+    <p v-if="event.extras.music">Music</p>
   </div>
 </template>
 

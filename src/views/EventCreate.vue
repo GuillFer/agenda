@@ -34,18 +34,27 @@
     />
 
     <h3>When is your event?</h3>
-    <label>Date</label>
-    <input
+    <BaseInput
       v-model="event.date"
+      label="Date"
       type="text"
-      placeholder="Date"
     />
 
-    <label>Time</label>
-    <input
+    <BaseInput
       v-model="event.time"
+      label="Time"
       type="text"
-      placeholder="Time"
+    />
+
+    <h3>Extras</h3>
+    <BaseCheckbox
+      v-model="event.extras.catering"
+      label="Catering"
+    />
+
+    <BaseCheckbox
+      v-model="event.extras.music"
+      label="Music"
     />
 
     <button type="submit">Submit</button>
@@ -57,14 +66,9 @@
 <script>
 import { v4 as uuidv4 } from 'uuid'
 import EventService from '@/services/EventService.js'
-// import BaseInput from '@/components/BaseInput.vue'
-// import BaseSelect from '@/components/BaseSelect.vue'
 
 export default {
-  // components: {
-  //   BaseInput,
-  //   BaseSelect
-  // },
+
   data () {
     return {
       categories: [
@@ -84,7 +88,11 @@ export default {
         location: '',
         date: '',
         time: '',
-        organizer: ''
+        organizer: '',
+        extras: {
+          catering: false,
+          music: false
+        }
       }
     }
   },
@@ -95,6 +103,7 @@ export default {
         id: uuidv4(),
         organizer: this.$store.state.user
       }
+      console.log(this.event)
       EventService.postEvent(event)
         .then(() => {
           this.$store.commit('ADD_EVENT', event)
@@ -118,5 +127,14 @@ export default {
   .form-container form {
     display:flex;
     flex-direction:column;
+    width:75%;
+  }
+
+  form >>> .field {
+    width:100%;
+  }
+
+  form >>> .field {
+    margin:8px auto 16px;
   }
 </style>

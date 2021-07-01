@@ -8,7 +8,11 @@
       "location": "Meow Town",
       "date": "January 28, 2022",
       "time": "12:00",
-      "organizer": "Kat Laydee"
+      "organizer": "Kat Laydee",
+      "extras": {
+        "catering": false,
+        "music": false
+      }
     },
     {
       "id": 456,
@@ -18,7 +22,11 @@
       "location": "Flora City",
       "date": "March 14, 2022",
       "time": "10:00",
-      "organizer": "Fern Pollin"
+      "organizer": "Fern Pollin",
+      "extras": {
+        "catering": false,
+        "music": false
+      }
     },
     {
       "id": 789,
@@ -28,7 +36,11 @@
       "location": "Playa Del Carmen",
       "date": "July 22, 2022",
       "time": "11:00",
-      "organizer": "Carey Wales"
+      "organizer": "Carey Wales",
+      "extras": {
+        "catering": false,
+        "music": false
+      }
     },
     {
       "id": "b83203a3-8dd6-430d-8a1a-dc1b769b9a2c",
@@ -38,7 +50,11 @@
       "location": "City Library",
       "date": "21/07/21",
       "time": "10:00",
-      "organizer": "Guillaume"
+      "organizer": "Guillaume",
+      "extras": {
+        "catering": false,
+        "music": false
+      }
     },
     {
       "id": "266a80c8-a195-4730-a799-1cfa680b0564",
@@ -48,17 +64,39 @@
       "location": "",
       "date": "01/08/21",
       "time": "12:00",
-      "organizer": "Guillaume"
+      "organizer": "Guillaume",
+      "extras": {
+        "catering": true,
+        "music": false
+      }
     },
     {
-      "id": "bd63fedc-1b96-4206-bfd0-9470e6519a8e",
-      "category": "food",
-      "title": "Food Donation",
-      "description": "",
-      "location": "",
-      "date": "01/08/21",
-      "time": "12:00",
-      "organizer": "Guillaume"
+      "id": "f2106955-eee0-4ca6-80a5-0a63e8cc31f8",
+      "category": "nature",
+      "title": "Animal Spotting",
+      "description": "Spot animals in the forest",
+      "location": "Forest",
+      "date": "12/07/21",
+      "time": "05:00",
+      "organizer": "Guillaume",
+      "extras": {
+        "catering": false,
+        "music": false
+      }
+    },
+    {
+      "id": "e86afc12-620a-4896-9e1d-548c5cb13763",
+      "category": "sustainability",
+      "title": "Test",
+      "description": "All true",
+      "location": "Home",
+      "date": "01/07",
+      "time": "21:00",
+      "organizer": "Guillaume",
+      "extras": {
+        "catering": true,
+        "music": true
+      }
     }
   ]
 }
