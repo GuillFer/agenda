@@ -39,6 +39,26 @@
       "date": "21/07/21",
       "time": "10:00",
       "organizer": "Guillaume"
+    },
+    {
+      "id": "266a80c8-a195-4730-a799-1cfa680b0564",
+      "category": "food",
+      "title": "Food Donation",
+      "description": "",
+      "location": "",
+      "date": "01/08/21",
+      "time": "12:00",
+      "organizer": "Guillaume"
+    },
+    {
+      "id": "bd63fedc-1b96-4206-bfd0-9470e6519a8e",
+      "category": "food",
+      "title": "Food Donation",
+      "description": "",
+      "location": "",
+      "date": "01/08/21",
+      "time": "12:00",
+      "organizer": "Guillaume"
     }
   ]
 }

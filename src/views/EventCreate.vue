@@ -4,39 +4,33 @@
 <div class="form-container">
 
   <form @submit.prevent="onSubmit">
-    <label>Select a category: </label>
-    <select v-model="event.category">
-      <option
-        v-for="option in categories"
-        :value="option"
-        :key="option"
-        :selected="option === event.category"
-      >{{ option }}</option>
-    </select>
+
+    <BaseSelect
+      :options="categories"
+      v-model="event.category"
+      label="Select a category"
+    />
 
     <h3>Name & describe your event</h3>
 
-    <label>Title</label>
-    <input
+    <BaseInput
       v-model="event.title"
+      label="Title"
       type="text"
-      placeholder="Title"
-    >
+    />
 
-    <label>Description</label>
-    <input
+    <BaseInput
       v-model="event.description"
+      label="Description"
       type="text"
-      placeholder="Description"
     />
 
     <h3>Where is your event?</h3>
 
-    <label>Location</label>
-    <input
+    <BaseInput
       v-model="event.location"
+      label="Location"
       type="text"
-      placeholder="Location"
     />
 
     <h3>When is your event?</h3>
@@ -56,15 +50,21 @@
 
     <button type="submit">Submit</button>
   </form>
-
 </div>
+
 </template>
 
 <script>
 import { v4 as uuidv4 } from 'uuid'
 import EventService from '@/services/EventService.js'
+// import BaseInput from '@/components/BaseInput.vue'
+// import BaseSelect from '@/components/BaseSelect.vue'
 
 export default {
+  // components: {
+  //   BaseInput,
+  //   BaseSelect
+  // },
   data () {
     return {
       categories: [
@@ -90,11 +90,14 @@ export default {
   },
   methods: {
     onSubmit () {
-      this.event.id = uuidv4()
-      this.event.organizer = this.$store.state.user
-      EventService.postEvent(this.event)
+      const event = {
+        ...this.event,
+        id: uuidv4(),
+        organizer: this.$store.state.user
+      }
+      EventService.postEvent(event)
         .then(() => {
-          // add Event
+          this.$store.commit('ADD_EVENT', event)
         })
         .catch((error) => {
           console.log(error)
