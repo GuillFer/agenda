@@ -22,7 +22,7 @@ export default {
     }
   },
   created () {
-    EventService.getEvents()
+    EventService.getEvents(this.$route.query.page || 1)
       .then(response => {
         this.events = response.data
         this.$store.state.events = response.data
