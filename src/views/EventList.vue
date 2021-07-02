@@ -25,6 +25,7 @@ export default {
     EventService.getEvents()
       .then(response => {
         this.events = response.data
+        this.$store.state.events = response.data
       })
       .catch(error => {
         console.log(error)

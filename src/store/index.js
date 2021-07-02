@@ -8,6 +8,10 @@ export default createStore({
   mutations: {
     ADD_EVENT (state, event) {
       state.events.push(event)
+    },
+    DELETE_EVENT (state, event) {
+      const index = state.events.indexOf(event)
+      state.events.splice(index, 1)
     }
   },
   actions: {

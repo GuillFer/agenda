@@ -3,7 +3,7 @@
 
 <div class="form-container">
 
-  <form @submit.prevent="onSubmit">
+  <form @submit.prevent="sendForm" ref="eventForm">
 
     <BaseSelect
       :options="categories"
@@ -97,7 +97,7 @@ export default {
     }
   },
   methods: {
-    onSubmit () {
+    sendForm () {
       const event = {
         ...this.event,
         id: uuidv4(),
@@ -107,6 +107,7 @@ export default {
       EventService.postEvent(event)
         .then(() => {
           this.$store.commit('ADD_EVENT', event)
+          this.$refs.eventForm.reset()
         })
         .catch((error) => {
           console.log(error)

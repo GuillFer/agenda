@@ -3,11 +3,15 @@
     <div class="event-card">
       <span>{{ event.date }}</span>
       <h4>{{ event.title }}</h4>
+      <a @click.stop.prevent="destroy(event)">Delete</a>
     </div>
   </router-link>
+
 </template>
 
 <script>
+import EventService from '@/services/EventService.js'
+
 export default {
   name: 'EventCard',
   props: {
@@ -15,12 +19,24 @@ export default {
       type: Object,
       required: true
     }
+  },
+  methods: {
+    destroy (event) {
+      if (window.confirm(`Supprimer ${event.title} ?`)) {
+        EventService.deleteEvent(event.id)
+          .then(() => {
+            this.$store.commit('DELETE_EVENT', event)
+          })
+          .catch((error) => {
+            console.log(error)
+          })
+      }
+    }
   }
 
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .event-card {
   padding: 20px;

@@ -69,34 +69,6 @@
         "catering": true,
         "music": false
       }
-    },
-    {
-      "id": "f2106955-eee0-4ca6-80a5-0a63e8cc31f8",
-      "category": "nature",
-      "title": "Animal Spotting",
-      "description": "Spot animals in the forest",
-      "location": "Forest",
-      "date": "12/07/21",
-      "time": "05:00",
-      "organizer": "Guillaume",
-      "extras": {
-        "catering": false,
-        "music": false
-      }
-    },
-    {
-      "id": "e86afc12-620a-4896-9e1d-548c5cb13763",
-      "category": "sustainability",
-      "title": "Test",
-      "description": "All true",
-      "location": "Home",
-      "date": "01/07",
-      "time": "21:00",
-      "organizer": "Guillaume",
-      "extras": {
-        "catering": true,
-        "music": true
-      }
     }
   ]
 }
