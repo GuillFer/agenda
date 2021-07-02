@@ -3,7 +3,8 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     user: 'Guillaume',
-    events: []
+    events: [],
+    eventsPerPage: 4
   },
   mutations: {
     ADD_EVENT (state, event) {
