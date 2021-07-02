@@ -3,16 +3,20 @@
   <div class="events">
     <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
     <EventCard v-for="event in events" :key="event.id" :event="event"/>
-    <router-link
-      :to="{ name: 'EventList', query: { page: page - 1 } }"
-      rel="prev"
-      v-if="page != 1"
-    >Prev</router-link>
-    <router-link
-      :to="{ name: 'EventList', query: { page: page + 1 } }"
-      rel="next"
-      v-if="hasNextPage"
-    >Next</router-link>
+
+    <div class="pagination">
+      <router-link
+        :to="{ name: 'EventList', query: { page: page - 1 } }"
+        rel="prev"
+        v-if="page != 1"
+      >&lsaquo;&lsaquo; Prev</router-link>
+      <router-link
+        :to="{ name: 'EventList', query: { page: page + 1 } }"
+        rel="next"
+        v-if="hasNextPage"
+      >Next &rsaquo;&rsaquo;</router-link>
+    </div>
+
   </div>
 </template>
 
@@ -40,7 +44,6 @@ export default {
         .then(response => {
           this.events = response.data
           this.$store.state.events = response.data
-          console.log(response.headers)
           this.totalEvents = response.headers['x-total-count']
         })
         .catch(error => {
@@ -62,5 +65,16 @@ export default {
     display:flex;
     flex-direction:column;
     align-items:center;
+  }
+
+  .pagination {
+    display:flex;
+    justify-content:space-evenly;
+    width:100%;
+    align-items:center;
+  }
+
+  .pagination a {
+    text-decoration:none;
   }
 </style>

@@ -107,11 +107,21 @@ export default {
       EventService.postEvent(event)
         .then(() => {
           this.$store.commit('ADD_EVENT', event)
+          this.postSuccess()
           this.$refs.eventForm.reset()
         })
         .catch((error) => {
           console.log(error)
         })
+      // this.$router.push({
+      //   name: 'EventList'
+      // })
+    },
+    postSuccess () {
+      this.$store.commit('FLASH', 'Created !')
+      setTimeout(() => {
+        this.$store.commit('FLASH', null)
+      }, 5000)
     }
   }
 }

@@ -69,6 +69,62 @@
         "catering": true,
         "music": false
       }
+    },
+    {
+      "id": "105c2189-a3aa-4d2c-a84d-edf6bbb4fa67",
+      "category": "",
+      "title": "",
+      "description": "",
+      "location": "",
+      "date": "",
+      "time": "",
+      "organizer": "Guillaume",
+      "extras": {
+        "catering": false,
+        "music": false
+      }
+    },
+    {
+      "id": "235ea89a-d38d-468b-b114-e6d7b2fdf068",
+      "category": "",
+      "title": "",
+      "description": "",
+      "location": "",
+      "date": "",
+      "time": "",
+      "organizer": "Guillaume",
+      "extras": {
+        "catering": false,
+        "music": false
+      }
+    },
+    {
+      "id": "073cba2a-5be0-428e-8255-096e7cc68d78",
+      "category": "",
+      "title": "",
+      "description": "",
+      "location": "",
+      "date": "",
+      "time": "",
+      "organizer": "Guillaume",
+      "extras": {
+        "catering": false,
+        "music": false
+      }
+    },
+    {
+      "id": "b5a6c80f-93ca-4c67-a44a-038efce6723e",
+      "category": "",
+      "title": "",
+      "description": "",
+      "location": "",
+      "date": "",
+      "time": "",
+      "organizer": "Guillaume",
+      "extras": {
+        "catering": false,
+        "music": false
+      }
     }
   ]
 }
