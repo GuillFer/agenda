@@ -6,6 +6,11 @@ import NotFound from '../views/404.vue'
 
 const routes = [
   {
+    path: '/',
+    redirect: { name: 'EventList' },
+    component: EventList
+  },
+  {
     path: '/events',
     name: 'EventList',
     component: EventList,

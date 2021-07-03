@@ -57,6 +57,14 @@
       label="Music"
     />
 
+    <h3>Are pets allowed ?</h3>
+
+    <BaseRadioGroup
+      v-model="event.pets"
+      name="pets"
+      :options="petOptions"
+    />
+
     <button type="submit">Submit</button>
   </form>
 </div>
@@ -92,8 +100,13 @@ export default {
         extras: {
           catering: false,
           music: false
-        }
-      }
+        },
+        pets: 0
+      },
+      petOptions: [
+        { label: 'Yes', value: 0 },
+        { label: 'No', value: 1 }
+      ]
     }
   },
   methods: {
@@ -148,4 +161,5 @@ export default {
   form >>> .field {
     margin:8px auto 16px;
   }
+
 </style>
