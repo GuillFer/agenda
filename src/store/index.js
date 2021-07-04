@@ -11,6 +11,10 @@ export default createStore({
     ADD_EVENT (state, event) {
       state.events.push(event)
     },
+    UPDATE_EVENT (state, event) {
+      const index = state.events.indexOf(event)
+      state.events[index] = event
+    },
     DELETE_EVENT (state, event) {
       const index = state.events.indexOf(event)
       state.events.splice(index, 1)

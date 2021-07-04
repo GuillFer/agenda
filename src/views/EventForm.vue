@@ -76,7 +76,12 @@ import { v4 as uuidv4 } from 'uuid'
 import EventService from '@/services/EventService.js'
 
 export default {
-
+  props: {
+    editing: {
+      type: Boolean,
+      default: false
+    }
+  },
   data () {
     return {
       categories: [
@@ -109,29 +114,53 @@ export default {
       ]
     }
   },
+  created () {
+    if (this.editing) {
+      EventService.getEvent(this.$route.params.id)
+        .then(response => {
+          this.event = response.data
+        })
+        .catch(error => {
+          console.log(error)
+          this.$router.push({
+            name: '404Resource',
+            params: { resource: 'event' }
+          })
+        })
+    }
+  },
   methods: {
     sendForm () {
-      const event = {
-        ...this.event,
-        id: uuidv4(),
-        organizer: this.$store.state.user
+      if (this.editing) {
+        const event = this.event
+        EventService.updateEvent(event)
+          .then(() => {
+            this.$store.commit('UPDATE_EVENT', event)
+            this.postSuccess('Edited')
+            this.$router.push({ name: 'EventDetails', params: { id: this.event.id } })
+          })
+          .catch((error) => {
+            console.log(error)
+          })
+      } else {
+        const event = {
+          ...this.event,
+          id: uuidv4(),
+          organizer: this.$store.state.user
+        }
+        EventService.postEvent(event)
+          .then(() => {
+            this.$store.commit('ADD_EVENT', event)
+            this.postSuccess('Created')
+            this.$refs.eventForm.reset()
+          })
+          .catch((error) => {
+            console.log(error)
+          })
       }
-      console.log(this.event)
-      EventService.postEvent(event)
-        .then(() => {
-          this.$store.commit('ADD_EVENT', event)
-          this.postSuccess()
-          this.$refs.eventForm.reset()
-        })
-        .catch((error) => {
-          console.log(error)
-        })
-      // this.$router.push({
-      //   name: 'EventList'
-      // })
     },
-    postSuccess () {
-      this.$store.commit('FLASH', 'Created !')
+    postSuccess (postType) {
+      this.$store.commit('FLASH', `${postType} !`)
       setTimeout(() => {
         this.$store.commit('FLASH', null)
       }, 5000)

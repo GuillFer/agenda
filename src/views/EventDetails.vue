@@ -5,6 +5,7 @@
     <p>{{ event.description }}</p>
     <p v-if="event.extras.catering">Catering</p>
     <p v-if="event.extras.music">Music</p>
+    <router-link :to="{name: 'EventEdit', params: {id: event.id}}">Edit this event</router-link>
   </div>
 </template>
 

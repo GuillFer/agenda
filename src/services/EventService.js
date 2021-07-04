@@ -1,7 +1,6 @@
 import axios from 'axios'
 
 const apiClient = axios.create({
-  // baseURL: 'https://my-json-server.typicode.com/GuillFer/agenda/',
   baseURL: 'http://localhost:3000',
   withCredentials: false,
   headers: {
@@ -19,6 +18,9 @@ export default {
   },
   postEvent (event) {
     return apiClient.post('/events/', event)
+  },
+  updateEvent (event) {
+    return apiClient.put(`/events/${event.id}`, event)
   },
   deleteEvent (id) {
     return apiClient.delete(`/events/${id}`)
