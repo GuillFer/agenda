@@ -25,13 +25,14 @@ const routes = [
   {
     path: '/event/create',
     name: 'EventCreate',
-    component: EventForm
+    component: EventForm,
+    props: { editing: false }
   },
   {
     path: '/event/:id/edit',
     name: 'EventEdit',
     component: EventForm,
-    props: route => ({ id: route.params.id, editing: true })
+    props: { editing: true }
   },
   {
     path: '/about',
