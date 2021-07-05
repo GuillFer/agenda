@@ -183,11 +183,11 @@ export default {
     width:75%;
   }
 
-  form >>> .field {
+  form:deep(.field) {
     width:100%;
   }
 
-  form >>> .field {
+  form:deep(.field) {
     margin:8px auto 16px;
   }
 
