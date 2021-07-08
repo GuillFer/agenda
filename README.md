@@ -1,4 +1,5 @@
 # agenda
+Event app coded for learning purpose on Vue
 
 ## Project setup
 ```
